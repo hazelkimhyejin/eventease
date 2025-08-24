@@ -31,6 +31,7 @@ function PurchaserPage() {
           >
             Register as Ticket Purchaser
           </Link>
+          <br></br>
           <Link
             to="/login/purchaser"
             className="btn-secondary"

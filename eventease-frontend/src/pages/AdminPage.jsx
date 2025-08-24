@@ -27,6 +27,7 @@ function AdminPage() {
           >
             Register as Admin
           </Link>
+          <br></br>
           <Link
             to="/login/admin"
             className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition"
