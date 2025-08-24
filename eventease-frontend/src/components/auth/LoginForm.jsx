@@ -1,0 +1,65 @@
+import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { loginUser } from '../../utils/auth';
+
+function LoginForm() {
+  const { role } = useParams();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await loginUser(formData);
+      if (response.success) {
+        navigate(`/${role}/dashboard`);
+      } else {
+        setError('Invalid credentials. Please try again.');
+      }
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+    }
+  };
+
+  return (
+    <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+      <h2 className="text-2xl font-bold text-blue-600 mb-4">Log In as {role.charAt(0).toUpperCase() + role.slice(1)}</h2>
+      {error && <p className="text-red-600 mb-4">{error}</p>}
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="block text-gray-600">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-600">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+            required
+          />
+        </div>
+        <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition">Log In</button>
+      </form>
+      <p className="mt-4 text-gray-600">
+        Don’t have an account? <Link to={`/register/${role}`} className="text-blue-600 hover:underline">Register</Link>
+      </p>
+    </div>
+  );
+}
+
+export default LoginForm;

@@ -1,7 +1,7 @@
 import UserManagement from '../components/admin/UserManagement';
 import FraudMonitor from '../components/admin/FraudMonitor';
 
-function AdminPage() {
+function AdminDashboard() {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold text-blue-600 mb-6">Administrator Dashboard</h1>
@@ -13,4 +13,4 @@ function AdminPage() {
   );
 }
 
-export default AdminPage;
+export default AdminDashboard;

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
       <h1 className="text-4xl font-bold text-blue-600 mb-8">Welcome to EventEase</h1>
       <p className="text-lg text-gray-600 mb-12">Select your role to get started</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full">
