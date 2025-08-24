@@ -3,18 +3,50 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background-color: #f7fafc;
+  color: #1f2937;
+  line-height: 1.6;
+  margin: 0;
 }
 
-button, input, select, textarea {
-  transition: all 0.2s ease-in-out;
+/* Custom component classes */
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50;
+  }
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-300 hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50;
+  }
+  .input-field {
+    @apply w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent text-gray-800 placeholder-gray-400;
+  }
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300;
+  }
+  .section-heading {
+    @apply text-3xl font-bold text-blue-600 mb-6;
+  }
 }
 
-button:hover:not(:disabled) {
-  transform: scale(1.05);
+/* Accessibility improvements */
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
 }
 
-input:focus, select:focus, textarea:focus {
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Role-specific accents */
+.purchaser-accent {
+  @apply border-l-4 border-blue-500;
+}
+.organiser-accent {
+  @apply border-l-4 border-green-500;
+}
+.admin-accent {
+  @apply border-l-4 border-purple-500;
 }

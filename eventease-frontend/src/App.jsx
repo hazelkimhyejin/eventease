@@ -37,29 +37,36 @@ function DashboardRedirect() {
   }
 }
 
+function OrganiserProfile() {
+  return <div className="container mx-auto p-6"><h1 className="section-heading">Organiser Profile</h1><p className="text-gray-600">Coming soon!</p></div>;
+}
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register/:role" element={<Register />} />
-        <Route path="/login/:role" element={<Login />} />
-        <Route path="/otp-verify/:role" element={<OTPVerify />} />
-        <Route path="/purchaser" element={<PurchaserPage />} />
-        <Route path="/purchaser/dashboard" element={<PurchaserDashboard />} />
-        <Route path="/organiser" element={<OrganiserPage />} />
-        <Route path="/organiser/dashboard" element={<OrganiserDashboard />} />
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/event/:id" element={<EventDetails />} />
-        <Route path="/search" element={<SearchResults />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/dashboard" element={<DashboardRedirect />} />
-      </Routes>
+      <main className="flex-grow container mx-auto p-6">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register/:role" element={<Register />} />
+          <Route path="/login/:role" element={<Login />} />
+          <Route path="/otp-verify/:role" element={<OTPVerify />} />
+          <Route path="/purchaser" element={<PurchaserPage />} />
+          <Route path="/purchaser/dashboard" element={<PurchaserDashboard />} />
+          <Route path="/organiser" element={<OrganiserPage />} />
+          <Route path="/organiser/dashboard" element={<OrganiserDashboard />} />
+          <Route path="/organiser/:id" element={<OrganiserProfile />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/event/:id" element={<EventDetails />} />
+          <Route path="/search" element={<SearchResults />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/dashboard" element={<DashboardRedirect />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );
