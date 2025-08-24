@@ -20,12 +20,12 @@ function SearchResults() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Search Results for "{query}"</h1>
+      <h1 className="text-3xl font-bold text-blue-600 mb-6">Search Results for "{query}"</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {events.length ? (
           events.map((event) => <EventCard key={event.id} event={event} />)
         ) : (
-          <p>No events found.</p>
+          <p className="text-gray-600">No events found.</p>
         )}
       </div>
     </div>
