@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import SeatSelector from '../components/purchaser/SeatSelector';
-import { purchaseTicket } from '../../utils/api';
+import {purchaseTicket} from '../utils/api';
 
 function EventDetails() {
   const { id } = useParams();
