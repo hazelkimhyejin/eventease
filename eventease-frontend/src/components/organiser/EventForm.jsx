@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createEvent } from '../../utils/api';
+import {createEvent} from '../../utils/api'; 
 
 function EventForm() {
   const [formData, setFormData] = useState({ title: '', date: '', location: '', price: '' });
