@@ -21,5 +21,16 @@ export const updateProfile = async (profileData) => {
 
 export const getUserRole = () => {
   // Simulated role fetching
-  return 'purchaser'; // Replace with actual backend logic
+  return 'guest'; // Replace with actual backend logic (e.g., JWT parsing)
+};
+
+export const isAuthenticated = () => {
+  // Simulated authentication check
+  return false; // Replace with actual backend logic (e.g., checking JWT)
+};
+
+export const logoutUser = () => {
+  // Simulated logout
+  console.log('User logged out');
+  // Replace with actual backend logic (e.g., clear JWT)
 };
