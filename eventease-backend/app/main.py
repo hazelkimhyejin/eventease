@@ -3,13 +3,18 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 from dotenv import load_dotenv
 
+# load environment variables from .env file
+load_dotenv()
+ALLOWED = os.getenv("ALLOWED_ORIGINS")
+origins = [o.strip() for o in ALLOWED.split(",")]
+
 # create the app
 app = FastAPI(title="EventEase API")
 
-# allow frontend (React at localhost:5173) to call this API
+# allow frontend to call this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5174"],  # later, add prod URL too
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
